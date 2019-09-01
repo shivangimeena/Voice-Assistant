@@ -1,4 +1,4 @@
 # Voice-Assistant-30Days
-I will try to make a voice assistant that has multiple functionalities like changing text to speech and vice versa, taking input the speech 
-from user and giving output(based on what is asked) as a speech or on screen - eg some calculation.
-I will keep updating this repository as I make more updates/advancements.
+A voice assistant is a digital assistant that uses voice recognition, natural language processing and speech synthesis to provide aid to users through phones and voice recognition applications. In general voice assistants react to voice commands and give the user relevant information about his inquiry. Presently voice assistants are already able to process orders of products, answer questions, perform actions like playing music or start a simple phone call with a friend.
+My aim is to build a voice assistant from my own from scratch. By "30 Days" I imply that I mean to regulary add new features to this for the next 30 days(even more if it requires).
+Day 1 : I have built a very basic model using packages like gTTS (Google Text-to-Speech) which is a screen reader application developed by Google for its Android OS. It powers applications to read aloud the text on the screen with support for many languages. I've even used packages. The program reads the input(text) from user, and outputs speech in the form of a .mp3 file.
