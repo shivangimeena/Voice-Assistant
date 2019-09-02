@@ -24,5 +24,11 @@ def get_audio():
 
 	return said
 
-speak("Hello, how are you?")
-get_audio()
+# speak("Hello, how are you?")
+# get_audio()
+text = get_audio()
+if "hello" in text:
+	speak("hello, how are you?")
+
+if"what is your name" in text:
+	speak("My name is Assistant-chan")
