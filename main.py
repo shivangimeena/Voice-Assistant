@@ -10,5 +10,19 @@ def speak(text):
 	filename = "voice.mp3"
 	tts.save(filename)
 	playsound.playsound(filename)
+def get_audio():
+	r = sr.Recognizer()
+	with sr.Microphone() as source:
+		audio = r.listen(source)
+		said = ""
 
-speak("creeper, aw man")
+		try:
+			said = r.recognize_google(audio)
+			print(said)
+		except Exception as e:
+			print("Exception: "+ str(e))
+
+	return said
+
+speak("Hello, how are you?")
+get_audio()
