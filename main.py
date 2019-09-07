@@ -11,8 +11,10 @@ import playsound
 import speech_recognition as sr 
 from gtts import gTTS 
 
-# If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+DAY_EXTENSIONS = ["rd", "th", "st"]
 
 def speak(text):
 	tts = gTTS(text = text, lang="en")
@@ -74,6 +76,35 @@ def get_events(n, service):
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
         print(start, event['summary'])
+	
+
+def get_data(text):
+	text = text.lower()
+	today = datetime.date.today()
+	if text.count("today") > 0:
+		return today
+
+	day = -1
+	day_of_week = -1
+	month = -1
+	year = today.year
+
+	for word in text.split():
+		if word in MONTHS:
+			month = MONTHS.index(month)+1
+		elif word in DAYS :
+			day_of_week = DAYS.index(word)
+		elif word.isdigit():
+			day = int(word)
+		else:
+			for ext in DAY_EXTENSIONS:
+				found = word.find(ext)
+				if found > 0:
+					try:
+						day = int(word[:found])
+					except:
+						pass
+
 
 
 
